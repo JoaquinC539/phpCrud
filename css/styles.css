@@ -1,0 +1,31 @@
+html{
+    font-size: 1.0em;
+    color-scheme: 'light dark';
+}
+html,
+body{
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    font-family: 'Gill Sans', sans-serif;
+}
+body{
+    padding: 1rem;
+}
+.dark{
+    background: #000;
+    color: #eee;
+}
+.table{
+    background-color:#ccc;
+    width:100%
+}
+tr,td{
+    padding:1rem;
+    margin:1rem 0 1rem 0;
+    border-top:solid 1px black;
+    border-bottom:solid 1px black
+}
+.cell{
+    text-align:center;
+}
