@@ -1,0 +1,25 @@
+<tbody>
+    {{#if action}}
+        {{#each data}}
+        <tr>
+            <td class="actions">
+                <a href="/vendedor/update?_id={{this._id}}"><i class="fa fa-pencil"></i></a>
+                <a  href="#" class="vendedores_delete" data-id="{{this._id}}"><i class="fa-solid fa-trash-can"></i></a>
+            </td>
+           
+            {{#each this}}
+                <td>{{this}}</td>
+            {{/each}}
+        </tr>
+        {{/each}}
+    {{else}}
+        {{#each data}}
+            <tr>
+            {{#each this}}
+                <td>{{this}}</td>
+            {{/each}}
+            </tr>
+        {{/each}}
+    
+    {{/if}}
+</tbody>
