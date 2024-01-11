@@ -1,12 +1,12 @@
 <?php
-    require __DIR__.'/router/router.php';
-    require __DIR__.'/environment/environment.php';
-    require __DIR__.'/functions/'."utils.php";
-    require __DIR__.'/functions/'."queries.php";
-    require __DIR__."/controllers/IndexController.php";
-    require __DIR__."/controllers/InteraccionesController.php";
-    require __DIR__."/controllers/VendedorController.php";
-    require __DIR__."/controllers/TemplateController.php";
+    require dirname(__DIR__).'/router/router.php';
+    require dirname(__DIR__).'/environment/environment.php';
+    require dirname(__DIR__).'/functions/'."utils.php";
+    require dirname(__DIR__).'/functions/'."queries.php";
+    require dirname(__DIR__)."/controllers/IndexController.php";
+    require dirname(__DIR__)."/controllers/InteraccionesController.php";
+    require dirname(__DIR__)."/controllers/VendedorController.php";
+    require dirname(__DIR__)."/controllers/TemplateController.php";
     $route=$_SERVER['REQUEST_URI'];
     $method=$_SERVER['REQUEST_METHOD'];
     $router=new Router($_SERVER);
@@ -33,7 +33,8 @@ html { color-scheme: light dark; }
 
 </style>
 </head>
-<!-- <body>Este es la base index</body> -->
+
+<body>Este es test</body>
 <?php
     $router->handleReq($method, $route,$_SERVER["QUERY_STRING"]);
 ?>
