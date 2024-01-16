@@ -84,8 +84,9 @@ function indexQuery($table,$params,$indexFilters=array(),$order="DESC") {
 function getQuery($table,$id){
     try{
         global $dbh;
-        $query="SELECT * FROM ".$table." WHERE _id=".$id;
+        $query="SELECT * FROM ".$table." WHERE _id= :_id";
         $stmt=$dbh->prepare($query);
+        $stmt->bindValue(":_id",$id);
         $stmt->execute();
         $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;        
@@ -122,12 +123,13 @@ function putQuery($table,$data,$id){
         $sets.= "{$key}=:{$key}, ";
     };
     $sets=rtrim($sets,", ");
-    $query="UPDATE {$table} SET {$sets} WHERE _id=$id RETURNING *";
+    $query="UPDATE {$table} SET {$sets} WHERE _id=:_id RETURNING *";
     $stmt = $dbh->prepare($query);
         foreach ($data as $key => &$value) {
             $stmt->bindValue(':'.$key, $value);
         }
-        $stmt->execute();
+    $stmt->bindValue(':_id',$id);
+    $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     // return $query;
     } catch (Exception $error) {
@@ -139,8 +141,9 @@ function putQuery($table,$data,$id){
 function deleteQuery($table,$id){
     try {
         global $dbh;
-        $query="DELETE FROM {$table} WHERE _id=$id";
+        $query="DELETE FROM {$table} WHERE _id=:_id";
         $stmt=$dbh->prepare($query);
+        $stmt->bindValue(':_id',$id);
         $stmt->execute();
         return array('error'=>false,'message'=>"Row/document deleted successfully");
     } catch (Exception $error) {
