@@ -1,4 +1,6 @@
 "use strict";
+// ESTO ES UN COMENTARIO PARA VER SI NO MANDA CACHE
+
 export const index=async (endpoint,params={max:15,offset:0})=>{
     if(!params["max"] ){
         params["max"]=15;
