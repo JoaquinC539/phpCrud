@@ -1,0 +1,7 @@
+./html/.env
+./html/.env.prod
+./html/.env.*
+
+.env
+
+.env.prod
