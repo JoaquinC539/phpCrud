@@ -1,4 +1,5 @@
 <?php
+    require __DIR__.'/vendor/autoload.php';
     require __DIR__.'/router/router.php';
     require __DIR__.'/environment/environment.php';
     require __DIR__.'/functions/'."utils.php";
@@ -7,6 +8,7 @@
     require __DIR__."/controllers/InteraccionesController.php";
     require __DIR__."/controllers/VendedorController.php";
     require __DIR__."/controllers/TemplateController.php";
+    require __DIR__."/controllers/CookieController.php";
     $route=$_SERVER['REQUEST_URI'];
     $method=$_SERVER['REQUEST_METHOD'];
     $router=new Router($_SERVER);
@@ -14,6 +16,7 @@
     $router->controllerAndRoutes(new InteraccionesController(),"routes");
     $router->controllerAndRoutes(new VendedorController(),"routes");
     $router->controllerAndRoutes(new TemplateController(),"routes");
+    $router->controllerAndRoutes(new CookieController(),"routes");
     if(httpCheck()){
         $router->handleReq($method, $route);
         return;
@@ -35,7 +38,7 @@ html { color-scheme: light dark; }
 </head>
 <!-- <body>Este es la base index</body> -->
 <?php
-    $router->handleReq($method, $route,$_SERVER["QUERY_STRING"]);
+    $router->handleReq($method, $route);
 ?>
 </html>
 

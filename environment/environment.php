@@ -13,6 +13,7 @@ if (!isset($_ENV['DB_HOST'])) {
     $_ENV['DB_PASS'] = $env['DB_PASS'];
     $_ENV['DB_NAME'] = $env['DB_NAME'];
     $_ENV['DB_PORT'] = $env['DB_PORT'];
+    $_ENV["JWT"]=$env["JWT"];
 }
 
 

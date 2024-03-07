@@ -132,3 +132,4 @@ dist
 .env
 
 docker-compose.yml
+vendor
