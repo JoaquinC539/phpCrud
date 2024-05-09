@@ -19,12 +19,7 @@
     
         public function handleReq($method, $route) {
             $found = false;
-            $parsedUrl=parse_url($route);
-
-            // parse_str($parsedUrl['query'],$query);
-            
-            // print_r($parsedUrl);
-            // print_r($query["max"]);
+            $parsedUrl=parse_url($route);            
 
             if (isset($this->routeTable[$method][$parsedUrl["path"]])) {
                 call_user_func($this->routeTable[$method][$parsedUrl["path"]]);

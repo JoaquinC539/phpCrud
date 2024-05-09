@@ -1,11 +1,17 @@
 <?php
     function httpCheck(){
-        $contentType=$_SERVER["CONTENT_TYPE"];
-        if($contentType==="application/json" || $contentType==="application/x-www-form-urlencoded" || $contentType==="application/template" ){
-            return true;
+        if(isset($_SERVER["CONTENT_TYPE"])){
+            $contentType=$_SERVER["CONTENT_TYPE"];
+        
+            if($contentType==="application/json" || $contentType==="application/x-www-form-urlencoded" || $contentType==="application/template" ){
+                return true;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
+        
     }
 
     function getQueryParams($paramsArray=array('max', 'offset')):array{
