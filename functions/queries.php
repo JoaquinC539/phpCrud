@@ -89,6 +89,8 @@ function getQuery($table,$id){
         $stmt->bindValue(":_id",$id);
         $stmt->execute();
         $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        
         return $data;        
     }catch(Exception $error){
         return array('error' => true, 'failure' => $error->getMessage());

@@ -17,7 +17,10 @@
                     echo json_encode($queryData);
                     exit();
                 }else{
-                    require dirname(__DIR__)."/views/interacciones/index.html";
+                    $params=getQueryParams(array("max","offset","nombre"));
+                    $queryData=indexQuery("interacciones",($params),array("nombre"));
+                    $bool=true;
+                    require dirname(__DIR__)."/views/interacciones/index.php";
                 }
                 
             };

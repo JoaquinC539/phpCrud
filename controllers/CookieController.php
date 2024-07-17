@@ -25,6 +25,7 @@ use Firebase\JWT\Key;
                 $jwt=JWT::encode($payload,$_ENV["JWT"],"HS256");
                 print_r($jwt."\n");
                 header("Test-Header:applicaction/test");
+                
                 header("Set-Cookie: sessionId=".$jwt.";SameSite=Strict; secure; HttpOnly; Max-Age=1 ");
                 if(isset($_COOKIE["sessionId"])){
                     $cook=$_COOKIE["sessionId"];
