@@ -1,5 +1,5 @@
 <?php
-
+    namespace Controller;
     class InteraccionesController{
         public $routes;
         public $index;

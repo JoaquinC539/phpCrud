@@ -6,6 +6,7 @@
     require __DIR__.'/functions/'."queries.php";
     require __DIR__."/controllers/IndexController.php";
     require __DIR__."/controllers/InteraccionesController.php";
+    use Controller\InteraccionesController;
     require __DIR__."/controllers/VendedorController.php";
     require __DIR__."/controllers/TemplateController.php";
     require __DIR__."/controllers/CookieController.php";
